@@ -3,7 +3,7 @@ package com.Hexaware.CMS.Model;
 /**
  * Customer used to insert/retrive menu items from/to the database.
  * 
- * @author Dinesh Uttam Das ----> 71628
+ * @author Dinesh Uttam Das 
  */
 public class Customer {
     private int customerId;
@@ -11,7 +11,7 @@ public class Customer {
     private String customerEmail;
     private String customerPhone;
     private String customerCoupon;
-    private double customerWalletBal;
+    private double customerWalletBalance;
 
     public Customer() {
     }
@@ -22,7 +22,7 @@ public class Customer {
         this.customerEmail = email;
         this.customerPhone = phone;
         this.customerCoupon = coupon;
-        this.customerWalletBal = walletBal;
+        this.customerWalletBalance = walletBal;
     }
 
     public void setCustomerId(int id) {
@@ -65,12 +65,12 @@ public class Customer {
         return this.customerCoupon;
     }
 
-    public void setCustomerWalletBal(double walletBal) {
-        this.customerWalletBal = walletBal;
+    public void setCustomerWalletBalance(double walletBal) {
+        this.customerWalletBalance = walletBal;
     }
 
-    public double getCustomerWalletBal() {
-        return this.customerWalletBal;
+    public double getCustomerWalletBalance() {
+        return this.customerWalletBalance;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Customer {
         // TODO Auto-generated method stub
         return "CustomerId :" + customerId + " CustomerName :" + customerName + " CustomerEmail :"
                 + customerEmail + " CustomerPhone :" + customerPhone + " CustomerCoupon :"
-                + customerCoupon + " CustomerWalletBal :" + customerWalletBal;
+                + customerCoupon + " CustomerWalletBal :" + customerWalletBalance;
     }
 
 }

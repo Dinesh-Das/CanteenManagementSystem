@@ -10,8 +10,14 @@ import com.Hexaware.CMS.Model.Orders;
 
 import java.sql.PreparedStatement;
 
+/**
+ * CustomerDb class used to connect to data base.
+ * 
+ * @author Dinesh Uttam Das
+ */
+
 public class CustomerDb {
-    private static int i;
+    private static int insert;
     private static String className = "com.mysql.cj.jdbc.Driver";
     private static String url = "jdbc:mysql://localhost:3306/CMSDB";
     private static String dbUser = "root";
@@ -29,12 +35,12 @@ public class CustomerDb {
             stmt.setString(2, phone);
             stmt.setString(3, email);
             stmt.setDouble(4, walletBal);
-            i = stmt.executeUpdate();
+            insert = stmt.executeUpdate();
             // System.out.println(i + " records inserted successfully");
         } catch (Exception e) {
             System.out.println(e);
         }
-        return i;
+        return insert;
     }
 
     // method to retrive customer information
@@ -54,7 +60,7 @@ public class CustomerDb {
                 customer.setCustomerName(resultSet.getString(2));
                 customer.setCustomerPhone(resultSet.getString(3));
                 customer.setCustomerEmail(resultSet.getString(4));
-                customer.setCustomerWalletBal(resultSet.getDouble(5));
+                customer.setCustomerWalletBalance(resultSet.getDouble(5));
             }
         } catch (Exception e) {
             System.out.println(e);

@@ -7,10 +7,10 @@ import com.Hexaware.CMS.Persistence.OrderDb;
 /**
  * OrderFactory class used to fetch and insert data to database.
  * 
- * @author Dinesh Uttam Das ----> 71628
+ * @author Dinesh Uttam Das 
  */
 public class OrderFactory {
-    static int x;
+    
 
     public static int OrderFood(Menu f, int fquan, int id, String status) {
         double foodTotal = fquan * f.getFoodPrice();
@@ -21,28 +21,9 @@ public class OrderFactory {
         return result;
     }
 
-    public static Menu[] fetchMenu() {
-        Menu menu[] = OrderDb.fetchDb();
-        return menu;
-    }
+   
 
-    public static void addFoodItem(Menu foodItem) {
-        x = OrderDb.addFoodItem(foodItem);
-        if (x == 1) {
-            System.out.println("Item Added Successfully!");
-        } else {
-            System.out.println("Error occured while inserting item");
-        }
-    }
-
-    public static void updateMenu(Menu foodItem) {
-        x = OrderDb.updateMenu(foodItem);
-        if (x == 1) {
-            System.out.println("Item Updated Successfully!");
-        } else {
-            System.out.println("Error occured while updating item");
-        }
-    }
+    
 
     public static double getWalletBalance(int cid) {
         return OrderDb.getWalletBalance(cid);
@@ -58,13 +39,7 @@ public class OrderFactory {
         return OrderDb.updateOrderStatus(status, reason, no);
     }
 
-    public static boolean checkEmail(String email) {
-        return OrderDb.checkEmail(email);
-    }
-
-    public static int resetPassword(String email, String pass) {
-        return OrderDb.resetPassword(email, pass);
-    }
+  
 
     public static boolean eligibleForDiscount(int cid) {
         return OrderDb.eligibleForDiscount(cid);

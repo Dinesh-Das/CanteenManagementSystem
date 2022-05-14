@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.Hexaware.CMS.Factory.CustomerFactory;
+import com.Hexaware.CMS.Factory.LoginFacotry;
+import com.Hexaware.CMS.Factory.MenuFactory;
 import com.Hexaware.CMS.Factory.OrderFactory;
 import com.Hexaware.CMS.Factory.VendorFactory;
 import com.Hexaware.CMS.Model.Customer;
@@ -12,13 +14,12 @@ import com.Hexaware.CMS.Model.Menu;
 import com.Hexaware.CMS.Model.Orders;
 import com.Hexaware.CMS.Model.Vendor;
 import com.Hexaware.CMS.Persistence.CustomerDb;
-import com.Hexaware.CMS.Persistence.OrderDb;
 import com.Hexaware.CMS.Persistence.VendorDb;
 
 /**
  * CliMain used as Client interface for java coading.
  * 
- * @author Dinesh Uttam Das ---> 71628
+ * @author Dinesh Uttam Das 
  */
 public class CliMain {
 
@@ -254,7 +255,7 @@ public class CliMain {
 
         } while (choice != 0);
 
-        primaryKeyId = OrderDb.getIdByType(email);
+        primaryKeyId = LoginFacotry.getIdByType(email);
         if (loginType == 1) {
             customerMenu();
         } else if (loginType == 2) {
@@ -267,14 +268,14 @@ public class CliMain {
         scan.nextLine();
         System.out.println("Enter Email :");
         email = scan.nextLine();
-        if (OrderFactory.checkEmail(email)) {
+        if (LoginFacotry.checkEmail(email)) {
             System.out.println("Enter Password :");
             password = scan.nextLine();
             System.out.println("Confirm Password :");
             String confirm = scan.nextLine();
             if (password.equals(confirm)) {
                 System.out.println("Password Reset Successfully");
-                return OrderFactory.resetPassword(email, password);
+                return LoginFacotry.resetPassword(email, password);
             } else {
                 System.out.println("Password Does Not Match!!! Try Again :)");
                 return -1;
@@ -317,7 +318,7 @@ public class CliMain {
         email = scan.nextLine();
         System.out.println("Enter password : ");
         password = scan.nextLine();
-        loginType = OrderDb.checkCredential(email, password);
+        loginType = LoginFacotry.checkCredential(email, password);
         if (loginType == -1) {
             return 1;
         }
@@ -348,7 +349,7 @@ public class CliMain {
             addVendor();
         }
         System.out.println("Signed-In Successfully...!");
-        return OrderDb.signupDb(loginType, email, password);
+        return LoginFacotry.signupDb(loginType, email, password);
     }
 
     /**
@@ -391,7 +392,7 @@ public class CliMain {
         System.out.println("Enter Price :");
         foodItem.setFoodPrice(scan.nextDouble());
         foodItem.setVendorId(primaryKeyId);
-        OrderFactory.addFoodItem(foodItem);
+        MenuFactory.addFoodItem(foodItem);
     }
 
     /**
@@ -408,7 +409,7 @@ public class CliMain {
         f.setFoodName(scan.nextLine());
         System.out.println("Updated Food Price:");
         f.setFoodPrice(scan.nextDouble());
-        OrderFactory.updateMenu(f);
+        MenuFactory.updateMenu(f);
     }
 
     /**
@@ -416,7 +417,7 @@ public class CliMain {
      */
     public static void placeOrder() {
         menuList();
-        Menu menu[] = OrderFactory.fetchMenu();
+        Menu menu[] = MenuFactory.fetchMenu();
         boolean isEligible = OrderFactory.eligibleForDiscount(primaryKeyId);
         double discount = 0;
         double discountedPrice = 0;
@@ -439,7 +440,7 @@ public class CliMain {
                 foodItem.setFoodPrice(menu[fid - 1].getFoodPrice());
                 foodItem.setVendorId(menu[fid - 1].getVendorId());
                 orderValue += foodItem.getFoodPrice() * fquan;
-                if (customer.getCustomerWalletBal() < orderValue) {
+                if (customer.getCustomerWalletBalance() < orderValue) {
                     System.out.println("Insufficient Funds....!");
 
                 } else {
@@ -480,7 +481,7 @@ public class CliMain {
      * this method is to fetch Menu list.
      */
     public static void menuList() {
-        Menu m[] = OrderFactory.fetchMenu();
+        Menu m[] = MenuFactory.fetchMenu();
         if (m != null) {
             System.out.println(dash);
             System.out.println(" Food Id" + "                Food Name" + "          Food Price" + "      Vendor Id");
@@ -597,7 +598,7 @@ public class CliMain {
         System.out.println("Phone          :" + c.getCustomerPhone());
         System.out.println("Email          :" + c.getCustomerEmail());
         System.out.println("Coupons        :" + c.getCustomerCupon());
-        System.out.println("Wallet Balance :" + c.getCustomerWalletBal());
+        System.out.println("Wallet Balance :" + c.getCustomerWalletBalance());
     }
 
     /**
@@ -610,7 +611,7 @@ public class CliMain {
         System.out.println("Name           :" + v.getVendorName());
         System.out.println("Phone          :" + v.getVendorPhone());
         System.out.println("Email          :" + v.getVendorEmail());
-        System.out.println("Specialization :" + v.getVendorSpecs());
+        System.out.println("Specialization :" + v.getvendorSpecification());
     }
 
     /**

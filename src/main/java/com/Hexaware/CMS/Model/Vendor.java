@@ -3,14 +3,14 @@ package com.Hexaware.CMS.Model;
 /**
  * Vendor used to insert/retrive menu items from/to the database.
  * 
- * @author Dinesh Uttam Das ----> 71628
+ * @author Dinesh Uttam Das 
  */
 public class Vendor {
     private int vendorId;
     private String vendorName;
     private String vendorPhone;
     private String vendorEmail;
-    private String vendorSpecs;
+    private String vendorSpecification;
 
     public Vendor() {
     }
@@ -20,7 +20,7 @@ public class Vendor {
         this.vendorName = name;
         this.vendorPhone = phone;
         this.vendorEmail = email;
-        this.vendorSpecs = specs;
+        this.vendorSpecification = specs;
     }
 
     public void setVendorId(int id) {
@@ -35,8 +35,8 @@ public class Vendor {
         this.vendorPhone = phone;
     }
 
-    public void setVendorSpecs(String specs) {
-        this.vendorSpecs = specs;
+    public void setvendorSpecification(String specs) {
+        this.vendorSpecification = specs;
     }
 
     public void setVendorEmail(String email) {
@@ -55,8 +55,8 @@ public class Vendor {
         return this.vendorPhone;
     }
 
-    public String getVendorSpecs() {
-        return this.vendorSpecs;
+    public String getvendorSpecification() {
+        return this.vendorSpecification;
     }
 
     public String getVendorEmail() {
@@ -67,7 +67,7 @@ public class Vendor {
     public String toString() {
         // TODO Auto-generated method stub
         return "Vendor Id : " + vendorId + " Vendor Name: " + vendorName + " Vendor Phone: "
-                + vendorPhone + " Vendor Email: " + vendorEmail + " Vendor Specs:" + vendorSpecs;
+                + vendorPhone + " Vendor Email: " + vendorEmail + " Vendor Specs:" + vendorSpecification;
     }
 
 }

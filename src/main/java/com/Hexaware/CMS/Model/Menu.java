@@ -3,7 +3,7 @@ package com.Hexaware.CMS.Model;
 /**
  * Menu used to insert/retrive menu items from/to the database.
  * 
- * @author Dinesh Uttam Das ----> 71628
+ * @author Dinesh Uttam Das 
  */
 public class Menu {
     private int foodId;

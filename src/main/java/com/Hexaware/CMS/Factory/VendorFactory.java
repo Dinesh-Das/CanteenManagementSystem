@@ -8,7 +8,7 @@ import com.Hexaware.CMS.Persistence.VendorDb;
 /**
  * VendorFactory used to fetch vendor details from database.
  * 
- * @author Dinesh Uttam Das ---> 71628
+ * @author Dinesh Uttam Das 
  */
 public class VendorFactory {
     public static Vendor vendorProfile(int vid) {

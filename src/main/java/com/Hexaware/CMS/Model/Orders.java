@@ -3,7 +3,7 @@ package com.Hexaware.CMS.Model;
 /**
  * Orders used to insert/retrive menu items from/to the database.
  * 
- * @author Dinesh Uttam Das ----> 71628
+ * @author Dinesh Uttam Das 
  */
 public class Orders {
     private int orderNo;

@@ -11,6 +11,11 @@ import com.Hexaware.CMS.Model.Vendor;
 
 import java.sql.PreparedStatement;
 
+/**
+ * Vendor class used to connect to data base.
+ * 
+ * @author Dinesh Uttam Das 
+ */
 public class VendorDb {
     private static int i;
     private static String className = "com.mysql.cj.jdbc.Driver";
@@ -81,7 +86,7 @@ public class VendorDb {
                 vendor.setVendorName(resultSet.getString(2));
                 vendor.setVendorPhone(resultSet.getString(3));
                 vendor.setVendorEmail(resultSet.getString(4));
-                vendor.setVendorSpecs(resultSet.getString(5));
+                vendor.setvendorSpecification(resultSet.getString(5));
             }
         } catch (Exception e) {
             System.out.println(e);

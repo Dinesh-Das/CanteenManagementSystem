@@ -7,7 +7,7 @@ import com.Hexaware.CMS.Persistence.CustomerDb;
 /**
  * CustomerFactory used to fetch customer data from database.
  * 
- * @author Dinesh Uttam Das ---> 71628
+ * @author Dinesh Uttam Das 
  */
 public class CustomerFactory {
 
